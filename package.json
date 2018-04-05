@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "cafiweb",
+=======
+  "name": "cafidrogas",
+>>>>>>> proyecto iniciado
   "private": true,
   "dependencies": {}
 }
