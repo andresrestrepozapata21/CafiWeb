@@ -7,6 +7,10 @@ end
 
 # Use for log
 gem 'devise'
+#
+gem 'foundation-rails'
+#
+gem 'autoprefixer-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'
 # Use mysql as the database for Active Record
