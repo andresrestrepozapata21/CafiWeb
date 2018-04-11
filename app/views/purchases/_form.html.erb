@@ -12,6 +12,10 @@
   <% end %>
 
   <div class="field">
+    <%= text_field_tag :client %>
+  </div>
+
+  <div class="field">
     <%= form.label :price %>
     <%= form.number_field :price, id: :purchase_price %>
   </div>

@@ -6,6 +6,8 @@ git_source(:github) do |repo_name|
 end
 
 #
+gem 'rspec', '~> 3.7'
+#
 gem 'cancancan'
 #
 gem 'rolify'

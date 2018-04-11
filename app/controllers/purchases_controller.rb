@@ -1,6 +1,7 @@
 class PurchasesController < ApplicationController
   before_action :set_purchase, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
+  load_and_authorize_resource
   # GET /purchases
   # GET /purchases.json
   def index
@@ -25,7 +26,10 @@ class PurchasesController < ApplicationController
   # POST /purchases.json
   def create
     @purchase = Purchase.new(purchase_params)
-
+    if(params[:client].present?)
+      @user = User.search_user_by_email(params[:client])
+      @purchase.user_id = @user.id
+    end
     respond_to do |format|
       if @purchase.save
         format.html { redirect_to @purchase, notice: 'Purchase was successfully created.' }

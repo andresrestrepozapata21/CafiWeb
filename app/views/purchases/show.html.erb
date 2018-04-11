@@ -10,5 +10,10 @@
   <%= @purchase.time %>
 </p>
 
+<p>
+  <strong>Client:</strong>
+  <%= User.find(@purchase.user_id).email %>
+</p>
+
 <%= link_to 'Edit', edit_purchase_path(@purchase) %> |
 <%= link_to 'Back', purchases_path %>
