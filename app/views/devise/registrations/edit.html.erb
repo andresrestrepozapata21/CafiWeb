@@ -1,16 +1,16 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="columns large-6">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <h2>Editar <%= resource_name.to_s.humanize %></h2>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
+<div class="row">
+  <div class="columns large-6">
+
+    <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :document %><br />
-    <%= f.text_field :document %>
   </div>
 
   <div class="field">
@@ -18,10 +18,29 @@
     <%= f.text_field :phone, autofocus: true %>
   </div>
 
+  </div>
+
+  <div class="columns large-6">
+    <div class="field">
+    <%= f.label :document %><br />
+    <%= f.text_field :document %>
+  </div>
+
+
   <div class="field">
     <%= f.label :address %><br />
     <%= f.text_field :address, autofocus: true %>
   </div>
+  
+  </div>
+
+</div>
+  
+
+  
+
+  
+
 
   <div class="field">
     <%= f.label :email %><br />
@@ -54,10 +73,24 @@
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
-<% end %>
+<% end %> 
+  </div>  
 
-<h3>Cancel my account</h3>
+  <div class="columns text-center large-6">
+   
+   <h3>Cancel my account</h3>
 
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
+  </div>
+
+
+
+   
+
+
+
+
+
+
