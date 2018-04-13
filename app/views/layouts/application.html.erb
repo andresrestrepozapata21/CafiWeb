@@ -13,10 +13,15 @@
 
   <body>
 <% if user_signed_in? %>
-    <%= link_to 'cerrar sesion', destroy_user_session_path, :method => :delete  %>
+<div class="row">
+  <div class="columns large-10"> </div>
+  <div class="columns large-2"> 
+<%= link_to 'cerrar sesion', destroy_user_session_path, :method => :delete  %>
   <% end %>
+
+</div>
     <%= yield %>
-    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "application" %>  </div>
 
   </body>
 </html>
