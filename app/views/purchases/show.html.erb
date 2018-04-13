@@ -15,5 +15,10 @@
   <%= User.find(@purchase.user_id).email %>
 </p>
 
+<p>
+  <strong>Factura:</strong>
+  <%= image_tag @purchase.invoice.url(:medium) %>
+</p>
+
 <%= link_to 'Edit', edit_purchase_path(@purchase) %> |
 <%= link_to 'Back', purchases_path %>

@@ -14,7 +14,12 @@
   <body>
   <% if user_signed_in? %>
     <%= link_to 'cerrar sesion', destroy_user_session_path, :method => :delete  %>
+    <%= link_to "Editar perfil", edit_user_registration_path %>
+    <% if current_user.has_role? :admin %>
+      <%= link_to 'Usuarios', users_path %>
+    <% end %>
   <% end %>
+
     <%= yield %>
     <%= javascript_include_tag "application" %>
   </body>

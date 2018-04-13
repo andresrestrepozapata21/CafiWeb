@@ -10,10 +10,18 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= text_field_tag :client %>
-  </div>
+  
+  <% if(@client == nil) %>
+    <div class="field">
+      <%= form.label :client %>
+      <%= text_field_tag :client %>
+    </div>
+  <% else %>
+    <div class="field">
+      <%= form.label :client %>
+      <%= text_field_tag :client, @client.email %>
+    </div>
+  <% end %>
 
   <div class="field">
     <%= form.label :price %>
@@ -23,6 +31,12 @@
   <div class="field">
     <%= form.label :time %>
     <%= form.date_select :time, id: :purchase_time %>
+  </div>
+
+  <%= image_tag purchase.invoice.url(:medium) %>
+  <div class="field">
+    <%= form.label :invoice %>
+    <%= form.file_field :invoice %>
   </div>
 
   <div class="actions">

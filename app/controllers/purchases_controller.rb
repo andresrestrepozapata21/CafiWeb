@@ -20,6 +20,7 @@ class PurchasesController < ApplicationController
 
   # GET /purchases/1/edit
   def edit
+    @client = User.find(@purchase.user_id)
   end
 
   # POST /purchases
@@ -73,6 +74,6 @@ class PurchasesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def purchase_params
-      params.require(:purchase).permit(:price, :time)
+      params.require(:purchase).permit(:price, :time, :invoice)
     end
 end

@@ -11,24 +11,17 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :document %>
-    <%= form.text_field :document, id: :user_document %>
-  </div>
+  <%= hidden_field_tag :user_document, user.document %>
+
+  <%= hidden_field_tag :user_name, user.name %>
+
+  <%= hidden_field_tag :user_phone, user.phone %>
+
+  <%= hidden_field_tag :user_address, user.address %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :user_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :phone %>
-    <%= form.text_field :phone, id: :user_phone %>
-  </div>
-
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address, id: :user_address %>
+    <%= form.label :money_amount %>
+    <%= form.number_field :money_amount, id: :money_amount %>
   </div>
 
   <div class="actions">
