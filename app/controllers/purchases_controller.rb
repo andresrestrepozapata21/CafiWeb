@@ -5,7 +5,11 @@ class PurchasesController < ApplicationController
   # GET /purchases
   # GET /purchases.json
   def index
-    @purchases = Purchase.all
+    if current_user.has_role? :admin
+      @purchases = Purchase.all
+    else
+      @purchases = current_user.purchases
+    end
   end
 
   # GET /purchases/1
