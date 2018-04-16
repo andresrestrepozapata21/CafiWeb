@@ -15,8 +15,8 @@
 
   <% if user_signed_in? %>
     <div class="row">
-      <div class="columns large-10"> </div>
-      <div class="columns large-2"> 
+      <div class="columns large-9"> </div>
+      <div class="columns large-3"> 
       <%= link_to 'cerrar sesion', destroy_user_session_path, :method => :delete  %>
       <%= link_to "Editar perfil", edit_user_registration_path %>
       <% if current_user.has_role? :admin %>

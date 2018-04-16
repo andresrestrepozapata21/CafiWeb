@@ -15,56 +15,55 @@
   <%= devise_error_messages! %>
 <div class="row"> 
  <div class="columns large-4"> </div>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :document %><br />
-    <%= f.text_field :document %>
-  </div>
-
-  <div class="field">
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_field :address, autofocus: true %>
-  </div>
-
-
+ 
   <div class="columns large-4">
 
-  <div class="field">
+    <div class="field">
+    <%= f.label :name, "Nombre" %><br />
+    <%= f.text_field :name, autofocus: true %>
+    </div>
+
+    <div class="field">
+    <%= f.label :document, "Número de Documento" %><br />
+    <%= f.text_field :document %>
+    </div>
+
+    <div class="field">
+    <%= f.label :phone, "Número Telefonico" %><br />
+    <%= f.text_field :phone, autofocus: true %>
+    </div>
+
+    <div class="field">
+    <%= f.label :address, "Dirección" %><br />
+    <%= f.text_field :address, autofocus: true %>
+    </div>
+
+    <div class="field">
     <%= f.label :email, "Correo" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    </div>
 
-  <div class="field">
+    <div class="field">
     <%= f.label :password, "Contraseña" %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> caracteres mínimos)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+    </div>
 
-  <div class="field">
+    <div class="field">
     <%= f.label :password_confirmation, "Confirmar Contraseña" %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+    </div>
 
-  <div class="actions">
+    <div class="actions">
     <%= f.submit "Registrarse" %>
-  </div>
-<% end %>
+    </div>
+    <% end %>
 
-<%= render "devise/shared/links" %>
+  <%= render "devise/shared/links" %>
 
- </div>
+ </d  iv>
 
  <div class="columns large 4">  </div>
 
