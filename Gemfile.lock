@@ -245,11 +245,8 @@ DEPENDENCIES
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
   devise
-<<<<<<< HEAD
   factory_girl_rails
-=======
   font-awesome-rails (~> 4.7, >= 4.7.0.4)
->>>>>>> 1c0301348b6c5059b23e3aa8f4eac8496205e351
   foundation-rails
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
