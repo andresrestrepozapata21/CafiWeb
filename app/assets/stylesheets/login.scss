@@ -1,4 +1,27 @@
-.logo {
-	width: 1300px;
-	height: 200px;
+body{
+	margin: 0 !important;
+	}
+
+.header {
+	background-color: #004C97;	
+	margin-bottom: 50px;
+   }
+
+.titulo_login, .titulo_registro {
+	color: green;
+}
+
+
+.titulo_login h2, .titulo_registro h2{
+	font-family: 'Patua One', cursive;
+}
+
+
+
+.title_log, .title_registro {
+	margin-bottom: 50px;
+}
+
+.field_email, .field_password {
+	border-radius: 10px;
 }

@@ -1,49 +1,60 @@
-<div class="row">
-  <div class="columns large-12 ">
-        <%= image_tag "farmacenter-logo.png", :class => "logo"%>
-  </div>
-</div>
+
   
-<div class="row align center">
-  <div class = "columns large-4"> </div>
-  <div class="columns text-center large-4"> <h2>Iniciar Sesión</h2> </div>
-  <div class="columns large-4"> </div> 
+<div class="row align-middle title_log">
+  <div class="columns text-right large-5" style="padding-bottom: 10px; color: green;">
+    <i class="fa fa-medkit fa-3x"></i>
+  </div>
+  <div class="columns large-4 titulo_login"> 
+    <h2>Iniciar Sesión</h2> 
+  </div>
 </div>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-<div class="row"> 
- <div class="columns large-4"> </div>
 
- <div class="columns large-4">
 
   <div class="field">
-    <%= f.label :email, "Correo" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <div class="row align-center">
+      <div class="columns large-5">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Digite su email", :class => "field_email" %>
+      </div>     
+    </div>
   </div>
 
   <div class="field">
-    <%= f.label :password, "Contraseña" %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <div class="row align-center">
+      <div class="columns large-5">
+        <%= f.password_field :password, autocomplete: "off", placeholder: "Digite su contraseña", :class => "field_password" %>
+      </div>     
+    </div> 
   </div>
 
   <% if devise_mapping.rememberable? -%>
     <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me, "Recuerdarme" %>
+      <div class="row">
+        <div class="columns text-center large-12">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me, "Recuerdarme" %>
+        </div>
+      </div>
     </div>
   <% end -%>
 
   <div class="actions">
-    <%= f.submit "iniciar Sesión" %>
+    <div class="row">
+      <div class="columns text-center large-12">
+        <%= f.submit "iniciar Sesión", :class => "hollow button success" %>
+      </div>
+    </div>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>
- </div>
-
- <div class="columns large 4">  </div>
-
+<div class="row">
+  <div class="columns text-center large-12">
+    <%= render "devise/shared/links" %>
+  </div>
 </div>
+
+
+
   
 
   

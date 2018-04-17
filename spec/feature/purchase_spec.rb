@@ -2,11 +2,11 @@ require 'rails_helper'
 
 RSpec.feature "pruebas para login" do
 	before :each do
-		u=Purchase.create!(:id => 1, :price => 1234, :time => "john",:phone => "1234567", :address => "cra 67", :email => "jcosoriov@uqvirtual.edu.co", :password => "123456")
-		u.add_role "admin"
+		p=Purchase.create!(:id => 1, :price => 1234, :time => "john",:phone => "1234567", :address => "cra 67", :email => "jcosoriov@uqvirtual.edu.co", :password => "123456")
+		u=User.create!(:id => 1, :document => "1234567", :name => "john",:phone => "1234567", :address => "cra 67", :email => "jcosoriov@uqvirtual.edu.co", :password => "123456")
 	end
 	
-	scenario "inicio de sesion de administrador" do
+	scenario "crear compra" do
 		visit new_user_session_path
 
 		fill_in "user[email]", with: "jcosoriov@uqvirtual.edu.co"
