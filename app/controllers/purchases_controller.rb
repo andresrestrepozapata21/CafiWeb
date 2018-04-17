@@ -33,7 +33,7 @@ class PurchasesController < ApplicationController
     @purchase = Purchase.new(purchase_params)
     if(params[:client].present?)
       @user = User.search_user_by_email(params[:client])
-      if(@user == nil)
+      if(@user != nil)
         @purchase.user_id = @user.id
       end
     end
