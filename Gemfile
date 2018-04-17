@@ -10,8 +10,6 @@ gem "paperclip", "~> 5.2.1"
 #
 gem 'rmagick'
 #
-gem 'rspec', '~> 3.7'
-#
 gem 'cancancan'
 #
 gem 'rolify'
@@ -54,6 +52,9 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  #
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
 end
 
 group :development do
