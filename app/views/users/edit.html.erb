@@ -1,6 +1,18 @@
-<h1>Editing User</h1>
+<div class="row align-middle title_compras">
+  <div class="columns text-right large-5" style="padding-bottom: 10px; color: green;">
+    <i class="fa fa-credit-card fa-3x"></i>
+  </div>
+  <div class="columns large-4 editar_monto"> 
+    <h2>Editar Monto</h2> 
+  </div>
+</div>
+
 
 <%= render 'form', user: @user %>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+<div class="row">
+	<div class="columns text-center large-12">
+		<%= link_to 'Back', users_path %>		
+	</div>
+</div>
+

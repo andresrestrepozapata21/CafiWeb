@@ -20,11 +20,18 @@
   <%= hidden_field_tag :user_address, user.address %>
 
   <div class="field">
-    <%= form.label :money_amount %>
-    <%= form.number_field :money_amount, id: :money_amount %>
+    <div class="row align-center">
+      <div class="columns large-5">
+        <%= form.number_field :money_amount, id: :money_amount, placeholder: "Modificar monto" %>
+      </div>
+    </div>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <div class="row">
+      <div class="columns text-center large-12">
+          <%= form.submit "Editar monto", :class => "hollow button success"%>
+      </div>
+    </div>
   </div>
 <% end %>
