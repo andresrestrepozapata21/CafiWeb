@@ -12,12 +12,12 @@
   <% end %>
   
   <% if(@client == nil) %>
-    <div class="field">
+    <div class="user_email">
       <%= form.label :client %>
-      <%= text_field_tag :client %>
+      <%= text_field_tag :client, data: {autocomplete_source: User.order(:email).map(&:email)} %>
     </div>
   <% else %>
-    <div class="field">
+    <div class="user_email">
       <%= form.label :client %>
       <%= text_field_tag :client, @client.email %>
     </div>
