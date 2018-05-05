@@ -1,6 +1,8 @@
 class PurchasesController < ApplicationController
   before_action :set_purchase, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :force_json, only: [:search]
+
   load_and_authorize_resource
   # GET /purchases
   # GET /purchases.json
@@ -9,6 +11,18 @@ class PurchasesController < ApplicationController
       @purchases = Purchase.all
     else
       @purchases = current_user.purchases
+    end
+  end
+
+
+  def search
+    @users = User.ransack(email_cont: params[:q]).result(distinct: true)
+
+    respond_to do |format|
+      format.html {}
+      format.json{
+        @users = @users.limit(5)
+      }
     end
   end
 
@@ -81,5 +95,9 @@ class PurchasesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def purchase_params
       params.require(:purchase).permit(:price, :time, :invoice)
+    end
+
+    def force_json
+      request.format = :json
     end
 end

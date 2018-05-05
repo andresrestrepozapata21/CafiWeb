@@ -10,36 +10,49 @@
       </ul>
     </div>
   <% end %>
-  
-  <% if(@client == nil) %>
-    <div class="user_email">
-      <%= form.label :client %>
-      <%= text_field_tag :client, data: {autocomplete_source: User.order(:email).map(&:email)} %>
-    </div>
-  <% else %>
-    <div class="user_email">
-      <%= form.label :client %>
-      <%= text_field_tag :client, @client.email %>
-    </div>
-  <% end %>
-
   <div class="field">
-    <%= form.label :price %>
-    <%= form.number_field :price, id: :purchase_price %>
+    <div class="row align-center">
+        <div class="columns large-5">
+            <% if @client == nil %>
+              <%= text_field_tag :client, "", placeholder: "Correo", data: {behavior: "autocomplete"}%>
+            <% else %>
+              <%= text_field_tag :client, @client.email, placeholder: "Correo", data: {behavior: "autocomplete"} %>
+            <% end %>
+        </div>
+    </div>
+  </div>
+  <div class="field">
+    <div class="row align-center">
+        <div class="columns large-5">
+          <%= form.number_field :price, id: :purchase_price, placeholder: "Precio" %>
+        </div>
+    </div>
   </div>
 
   <div class="field">
-    <%= form.label :time %>
-    <%= form.date_select :time, id: :purchase_time %>
+    <div class="row align-center">
+        <div class="columns large-5">
+          <%= form.label :time, "Ingrese la fecha con el siguiente orden: AÑO/MES/DIA" %>
+          <%= form.date_select :time, id: :purchase_time %>
+        </div>
+      </div>
   </div>
 
-  <%= image_tag purchase.invoice.url(:medium) %>
   <div class="field">
-    <%= form.label :invoice %>
-    <%= form.file_field :invoice %>
+    <div class="row align-center">
+        <div class="columns large-5">
+          <%= image_tag purchase.invoice.url(:medium) %>
+          <%= form.label :invoice, "Factura" %>
+          <%= form.file_field :invoice %>
+        </div>
+    </div>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <div class="row align-center">
+        <div class="columns large-5">
+          <%= form.submit "Crear Compra" %>
+        </div>
+    </div>
   </div>
 <% end %>

@@ -6,6 +6,8 @@ git_source(:github) do |repo_name|
 end
 
 #
+gem 'ransack'
+#
 gem "paperclip", "~> 5.2.1"
 #
 gem 'rmagick'

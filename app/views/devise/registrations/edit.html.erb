@@ -9,12 +9,12 @@
   <div class="columns large-6">
 
     <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name, "Nombre" %><br />
     <%= f.text_field :name, autofocus: true %>
   </div>
 
   <div class="field">
-    <%= f.label :phone %><br />
+    <%= f.label :phone, "Telefono" %><br />
     <%= f.text_field :phone, autofocus: true %>
   </div>
 
@@ -22,13 +22,13 @@
 
   <div class="columns large-6">
     <div class="field">
-    <%= f.label :document %><br />
+    <%= f.label :document, "Documentos" %><br />
     <%= f.text_field :document %>
   </div>
 
 
   <div class="field">
-    <%= f.label :address %><br />
+    <%= f.label :address, "Dirección" %><br />
     <%= f.text_field :address, autofocus: true %>
   </div>
   
@@ -36,14 +36,8 @@
 
 </div>
   
-
-  
-
-  
-
-
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email, "Correo" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
@@ -52,7 +46,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.label :password, "Nueva Contraseña" %> <i>(leave blank if you don't want to change it)</i><br />
     <%= f.password_field :password, autocomplete: "off" %>
     <% if @minimum_password_length %>
       <br />
@@ -61,28 +55,31 @@
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :password_confirmation, "Confirmar Nueva Contraseña" %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
   <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.label :current_password, "Contraseña Actual" %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
+  <div class="columns large-7">
+    <div class="actions">
+      <%= f.submit "Actualizar" %>
+    </div>
+  <% end %> 
   </div>
-<% end %> 
-  </div>  
+</div>
+    
 
   <div class="columns text-center large-6">
    
-   <h3>Cancel my account</h3>
+   <h3>Cancelar Mi Cuenta</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p>No estas feliz? <%= button_to "Cancelar Mi Cuenta", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
-<%= link_to "Back", :back %>
+<%= link_to "atras", :back %>
   </div>
 
 
