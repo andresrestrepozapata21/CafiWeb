@@ -13,4 +13,5 @@ class User < ApplicationRecord
 	end
 
 	scope :search_user_by_email, ->(data) { where("email like ?", data).take}
+	scope :sum_purchases_of_user_by_email, ->(data) { joins(:purchases).where("email like ?", data).sum(:price)}
 end

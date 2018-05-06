@@ -48,6 +48,8 @@ class PurchasesController < ApplicationController
     if(params[:client].present?)
       @user = User.search_user_by_email(params[:client])
       if(@user != nil)
+        @money_amount = User.sum_purchases_of_user_by_email(@user.email)+@purchase.price
+        @user.update(money_amount: @money_amount)
         @purchase.user_id = @user.id
       end
     end
@@ -74,6 +76,9 @@ class PurchasesController < ApplicationController
         format.json { render json: @purchase.errors, status: :unprocessable_entity }
       end
     end
+    @user = User.find(@purchase.user_id)
+    @money_amount = User.sum_purchases_of_user_by_email(@user.email)
+    @user.update(money_amount: @money_amount)
   end
 
   # DELETE /purchases/1
@@ -84,6 +89,9 @@ class PurchasesController < ApplicationController
       format.html { redirect_to purchases_url, notice: 'Purchase was successfully destroyed.' }
       format.json { head :no_content }
     end
+    @user = User.find(@purchase.user_id)
+    @money_amount = User.sum_purchases_of_user_by_email(@user.email)
+    @user.update(money_amount: @money_amount)
   end
 
   private

@@ -1,6 +1,52 @@
-<h1>Editing Purchase</h1>
+<div class="row align-middle title_log">
+  <div class="columns text-right large-5" style="padding-bottom: 10px; color: green;">
+    <i class="fa fa-medkit fa-3x"></i>
+  </div>
+  <div class="columns large-4 titulo_login"> 
+    <h1>Editar Compra</h1> 
+  </div>
+</div>
 
-<%= render 'form', purchase: @purchase %>
+<%= form_with(model: @purchase, local: true) do |form| %>
+  <% if @purchase.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@purchase.errors.count, "error") %> prohibited this purchase from being saved:</h2>
 
-<%= link_to 'Show', @purchase %> |
-<%= link_to 'Back', purchases_path %>
+      <ul>
+      <% @purchase.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <div class="row align-center">
+        <div class="columns large-5">
+          <%= form.number_field :price, id: :purchase_price, placeholder: "Precio" %>
+        </div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <div class="row align-center">
+      <div class="columns large-5"></div>
+        <div class="columns">
+          <%= form.submit "Actualizar Compra" %>
+        </div>
+        <div class="columns"></div>
+    </div>
+  </div>
+<% end %>
+
+<div class="row">
+  <div class="columns large-5"></div>
+
+  <div class="columns">
+<%= link_to 'Detalle', @purchase %> |
+<%= link_to 'Atras', purchases_path %>
+</div>
+
+<div class="columns"></div>
+
+</div>

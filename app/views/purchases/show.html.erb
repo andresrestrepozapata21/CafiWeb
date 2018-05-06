@@ -1,24 +1,56 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @purchase.price %>
-</p>
+<div class="row align-center">
+	<div class="columns large 4"></div>
 
-<p>
-  <strong>Time:</strong>
-  <%= @purchase.time %>
-</p>
+	<div class="columns">
+		<p>
+  			<strong>Cliente:</strong>
+  			<%= User.find(@purchase.user_id).email %>
+		</p>
+	</div>
 
-<p>
-  <strong>Client:</strong>
-  <%= User.find(@purchase.user_id).email %>
-</p>
+	<div class="columns"></div>
+</div>
 
-<p>
-  <strong>Factura:</strong>
-  <%= image_tag @purchase.invoice.url(:medium) %>
-</p>
+<div class="row align-center">
 
-<%= link_to 'Edit', edit_purchase_path(@purchase) %> |
-<%= link_to 'Back', purchases_path %>
+	<div class="columns large-2">
+		<p>
+  			<strong>Pricio:</strong>
+  			<%= @purchase.price %>
+		</p>	
+	</div>
+
+	<div class="colums large-2">
+		<p>
+  			<strong>Tiempo:</strong>
+  			<%= @purchase.time %>
+		</p>
+	</div>
+</div>
+
+<div class="row align-center">
+
+	<div class="columns large 4"></div>
+
+	<div class="columns">
+		<p>
+  			<strong>Factura:</strong>
+  			<%= image_tag @purchase.invoice.url(:medium) %>
+		</p>
+	</div>
+
+	<div class="columns"></div>
+</div>
+
+<div class="row align-center">
+	<div class="columns large-4"></div>
+
+	<div class="columns large-6">
+		<%= link_to 'Editar', edit_purchase_path(@purchase) %> |
+		<%= link_to 'Atras', purchases_path %>		
+	</div>
+
+</div>
+
