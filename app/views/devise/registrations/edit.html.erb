@@ -1,6 +1,6 @@
 <div class="columns large-6">
 
-    <h2>Editar <%= resource_name.to_s.humanize %></h2>
+    <h2>Editar Mi Información</h2>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
@@ -66,6 +66,8 @@
 
   <div class="columns large-7">
     <div class="actions">
+      <%= link_to "atras", :back %>
+      <strong>|</strong>
       <%= f.submit "Actualizar" %>
     </div>
   <% end %> 
@@ -74,12 +76,8 @@
     
 
   <div class="columns text-center large-6">
-   
-   <h3>Cancelar Mi Cuenta</h3>
-
-<p>No estas feliz? <%= button_to "Cancelar Mi Cuenta", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "atras", :back %>
+    
+    
   </div>
 
 

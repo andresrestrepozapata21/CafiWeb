@@ -1,29 +1,85 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Document:</strong>
-  <%= @user.document %>
-</p>
+<div class="row align-center">
+  <div class="columns large-4"></div>
+  <div class="columns">
+    <p>
+    <strong>Documento:</strong>
+    <%= @user.document %>
+   </p>
+  </div>
+  <div class="columns"></div>
+</div>
 
-<p>
-  <strong>Name:</strong>
+<div class="row align-center">
+  <div class="columns large-4"></div>
+  <div class="columns">
+    <p>
+  <strong>Nombre:</strong>
   <%= @user.name %>
 </p>
+  </div>
+  <div class="columns"></div>
+</div>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @user.phone %>
-</p>
+<div class="row align-center">
+  <div class="columns large-4"></div>
+  <div class="columns">
+    <p>
+    <strong>Telefono:</strong>
+    <%= @user.phone %>
+    </p>
+ </div>
+  <div class="columns"></div>
+</div>
 
-<p>
-  <strong>Address:</strong>
-  <%= @user.address %>
-</p>
+<div class="row align-center">
+  <div class="columns large-4"></div>
+  <div class="columns">
+    <p>
+    <strong>Telefono:</strong>
+    <%= @user.phone %>
+    </p>
+  </div>
+  <div class="columns"></div>
+</div>
 
-<p>
-  <strong>Money amount:</strong>
-  <%= @user.money_amount %>
-</p>
+<div class="row align-center">
+  <div class="columns large-4"></div>
+  <div class="columns">
+    <p>
+    <strong>Direccion:</strong>
+   <%= @user.address %>
+    </p>
+  </div>
+  <div class="columns"></div>
+</div>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<div class="row align-center">
+  <div class="columns large-4"></div>
+  <div class="columns">
+    <p>
+    <strong>Monto Maximo:</strong>
+    <%= @user.money_amount %>
+    </p>
+  </div>
+  <div class="columns"></div>
+</div>
+
+<div class="row align-center">
+  <div class="columns large-4"></div>
+  <div class="columns">
+    <%= link_to 'Editar', edit_user_path(@user) %> |
+    <%= link_to 'Atras', users_path %>
+  </div>
+  <div class="columns"></div>
+</div>
+
+
+
+
+
+
+
+
+
