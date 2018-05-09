@@ -3,6 +3,14 @@
 # Check https://circleci.com/docs/2.0/language-ruby/ for more details
 #
 version: 2
+containerInfo:
+  - image: alienfast/ruby:latest
+    env:
+      - RAILS_ENV=test
+  - image: library/mysql:5.7.17
+    env:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=true
+      - MYSQL_ROOT_HOST=%
 jobs:
   build:
     docker:
