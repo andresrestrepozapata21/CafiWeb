@@ -16,7 +16,7 @@ jobs: # a collection of steps
           PGHOST: 127.0.0.1
           PGUSER: circleci-demo-ruby
           RAILS_ENV: test
-      - image: circleci/mysql:5.7.22-alpine # database image
+      - image: circleci/mysql:5.7.22 # database image
         environment: # environment variables for database
           MYSQL_USER: circleci-demo-ruby
           MYSQL_DB: rails_blog
