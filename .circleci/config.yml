@@ -60,8 +60,3 @@ jobs:
       - store_artifacts:
           path: /tmp/test-results
           destination: test-results
-
-dependencies:
-  pre:
-    - curl -sSL https://gist.githubusercontent.com/toshimaru/06ffbf2e8ad7d4e3dab889fa27681835/raw/install-mysql5.7-circleci.sh | sh
-
