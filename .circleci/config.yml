@@ -24,7 +24,9 @@ jobs: # a collection of steps
           MYSQL_HOST: 127.0.0.1
     steps: # a collection of executable commands
       - checkout # special step to check out source code to working directory
-
+      - run:
+          name: Mysql database
+          command: mysql  -h 127.0.0.1 -u root -e "create database cafidrogas_test;"
       # Which version of bundler?
       - run:
           name: Which bundler?
