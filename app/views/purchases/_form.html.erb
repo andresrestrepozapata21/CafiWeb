@@ -13,11 +13,7 @@
   <div class="field">
     <div class="row align-center">
         <div class="columns large-5">
-            <% if @client == nil %>
-              <%= text_field_tag :client, "", placeholder: "Correo", data: {behavior: "autocomplete"}%>
-            <% else %>
-              <%= text_field_tag :client, @client.email, placeholder: "Correo", data: {behavior: "autocomplete"} %>
-            <% end %>
+            <%= hidden_field_tag :client, @client%>
         </div>
     </div>
   </div>

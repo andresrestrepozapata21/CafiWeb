@@ -17,6 +17,7 @@ document.addEventListener("turbolinks:load", function() {
 				var url = $input.getSelectedItemData().url
 				$input.val("")
 				Turbolinks.visit(url)
+				location.reload();
 			}
 		}
 	}

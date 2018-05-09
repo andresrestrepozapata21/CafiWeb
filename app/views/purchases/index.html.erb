@@ -42,7 +42,7 @@
 <div class="row">
   <div class="columns text-center large-12">
     <% if current_user.has_role? :admin %>
-      <%= link_to 'Nueva Compra', new_purchase_path, :class => "hollow button success" %>
+      <%= link_to 'Nueva Compra', new_purchase_path(client: @client.id), :class => "hollow button success" %>
     <% end %>    
   </div>
 </div>

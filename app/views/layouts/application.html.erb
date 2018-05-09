@@ -18,21 +18,16 @@
     </div>
   </header>
   <% if user_signed_in? %>
-    <div class="row align-right">
-      <div class="columns large-1">
-        <% if current_user.has_role? :admin %>
-          <% if params[:action] == "index" && params[:controller] == "users" %>
-            <%= link_to 'Compras', purchases_path, :class => "clear button" %>
-          <% elsif params[:action] == "index" && params[:controller] == "purchases" %>
-            <%= link_to 'Usuarios', users_path, :class => "clear button" %>
-          <% end %>
-        <% end %>
-      </div>
-      <div class="columns large-1">
-        <% if params[:action] == "index" && params[:controller] == "users" %>
-          <%= link_to "Editar", edit_user_registration_path, :class => "clear button success" %>
-        <% end %>
-      </div>
+    <div class="row align-right"> 
+      <% if current_user.has_role? :admin %>
+        <div class="columns large-1">
+          <%= link_to 'Usuarios', users_path, :class => "clear button" %>
+        </div>
+        <div class="columns large-1">
+          <%= link_to "Editar mi Información", edit_user_registration_path, :class => "clear button success" %>
+        </div>
+      <% end %>
+      
       <div class="columns large-1"> 
         <%= link_to 'Salir', destroy_user_session_path, :method => :delete , :class => "clear button alert" %>
       </div>

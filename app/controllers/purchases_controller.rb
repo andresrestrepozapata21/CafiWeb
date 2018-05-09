@@ -2,16 +2,21 @@ class PurchasesController < ApplicationController
   before_action :set_purchase, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
   before_action :force_json, only: [:search]
-
   load_and_authorize_resource
+
   # GET /purchases
   # GET /purchases.json
   def index
-    if current_user.has_role? :admin
-      @purchases = Purchase.all
-    else
-      @purchases = current_user.purchases
-    end
+    if(params[:client].present?)
+      @client = User.find(params[:client])
+      @purchases = @client.purchases
+    else  
+      if current_user.has_role? :admin
+        @purchases = Purchase.all
+      else
+        @purchases = current_user.purchases
+      end
+    end  
   end
 
 
@@ -34,11 +39,11 @@ class PurchasesController < ApplicationController
   # GET /purchases/new
   def new
     @purchase = Purchase.new
+    @client = params[:client]
   end
 
   # GET /purchases/1/edit
   def edit
-    @client = User.find(@purchase.user_id)
   end
 
   # POST /purchases
@@ -46,7 +51,8 @@ class PurchasesController < ApplicationController
   def create
     @purchase = Purchase.new(purchase_params)
     if(params[:client].present?)
-      @user = User.search_user_by_email(params[:client])
+      @client = User.find(params[:client])
+      @user = User.search_user_by_email(@client.email)
       if(@user != nil)
         @money_amount = User.sum_purchases_of_user_by_email(@user.email)+@purchase.price
         @user.update(money_amount: @money_amount)
@@ -55,7 +61,7 @@ class PurchasesController < ApplicationController
     end
     respond_to do |format|
       if @purchase.save
-        format.html { redirect_to @purchase, notice: 'Purchase was successfully created.' }
+        format.html { redirect_to purchases_path(client: params[:client]), notice: 'Purchase was successfully created.' }
         format.json { render :show, status: :created, location: @purchase }
       else
         format.html { render :new }
@@ -67,8 +73,12 @@ class PurchasesController < ApplicationController
   # PATCH/PUT /purchases/1
   # PATCH/PUT /purchases/1.json
   def update
+    price = @purchase.price-params[:price].to_i
+    if(price<0)
+      price = 0
+    end
     respond_to do |format|
-      if @purchase.update(purchase_params)
+      if @purchase.update(price: price)
         format.html { redirect_to @purchase, notice: 'Purchase was successfully updated.' }
         format.json { render :show, status: :ok, location: @purchase }
       else

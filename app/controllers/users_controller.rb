@@ -1,15 +1,19 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
   # GET /users
   # GET /users.json
   def index
-    if(params[:client].present?)
-      @one = false
-      @users = User.find(params[:client])
+    if current_user.has_role? :admin
+      if(params[:client].present?)
+        @one = false
+        @users = User.find(params[:client])
+      else
+        @one = true
+        @users = User.all
+      end
     else
-      @one = true
-      @users = User.all
+      redirect_to purchases_path()
     end
   end
 

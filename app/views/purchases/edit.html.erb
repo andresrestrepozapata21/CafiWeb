@@ -3,7 +3,7 @@
     <i class="fa fa-medkit fa-3x"></i>
   </div>
   <div class="columns large-4 titulo_login"> 
-    <h1>Editar Compra</h1> 
+    <h1>Abonar a la Compra</h1> 
   </div>
 </div>
 
@@ -23,12 +23,12 @@
   <div class="field">
     <div class="row align-center">
       <div class="columns large-5">
-        <strong>Modifique al Precio Deseado</strong>
+        <strong>Ingrese el abono recibido</strong>
       </div>
     </div>
     <div class="row align-center">
         <div class="columns large-5">
-          <%= form.number_field :price, id: :purchase_price, placeholder: "Precio" %>
+          <%= number_field_tag :price, "", placeholder: "Precio" %>
         </div>
     </div>
   </div>
@@ -37,7 +37,7 @@
     <div class="row align-center">
       <div class="columns large-5"></div>
         <div class="columns">
-          <%= form.submit "Actualizar Compra" %>
+          <%= form.submit "Abonar" %>
         </div>
         <div class="columns"></div>
     </div>

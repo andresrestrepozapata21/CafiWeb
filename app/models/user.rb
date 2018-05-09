@@ -6,7 +6,7 @@ class User < ApplicationRecord
 	devise :database_authenticatable, :registerable,
 	     :recoverable, :rememberable, :trackable, :validatable
 
-	has_many :purchases 
+	has_many :purchases, dependent: :destroy
 
 	def assign_default_role
 		self.add_role(:client) if self.roles.blank?
