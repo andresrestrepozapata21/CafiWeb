@@ -7,7 +7,7 @@ addons:
 services:
   - postgresql
 before_script:
-  - cp config/database.yml
+  - "cp ./.travis.database.yml ./config/database.yml"
   - psql -c 'create database cafiweb_test;' -U postgres
   - RAILS_ENV=test bundle exec rake db:migrate --trace
 script:
