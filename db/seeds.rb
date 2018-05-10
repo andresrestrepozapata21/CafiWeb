@@ -5,5 +5,5 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-	user = User.create(name: "libardo", email: "bardolies@hotmail.com", password: "123456")
-	user.add_role "admin"
+	u = User.create(:id => 1, :document => "1234567", :name => "john",:phone => "1234567", :address => "cra 67", :email => "jcosoriov@uqvirtual.edu.co", :password => "123456")
+	u.add_role "admin"
