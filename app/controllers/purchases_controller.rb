@@ -8,13 +8,16 @@ class PurchasesController < ApplicationController
   # GET /purchases.json
   def index
     if(params[:client].present?)
-      @client = User.find(params[:client])
-      @purchases = @client.purchases
+      @client = params[:client]
+      @clientb = User.find(params[:client])
+      @purchases = @clientb.purchases
     else  
       if current_user.has_role? :admin
         @purchases = Purchase.all
+        @client
       else
         @purchases = current_user.purchases
+        @client
       end
     end  
   end
@@ -34,6 +37,9 @@ class PurchasesController < ApplicationController
   # GET /purchases/1
   # GET /purchases/1.json
   def show
+    if(params[:client].present?)
+      @client = User.find(params[:client])
+    end
   end
 
   # GET /purchases/new

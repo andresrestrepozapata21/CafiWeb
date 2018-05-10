@@ -55,8 +55,7 @@
 	<div class="columns large-4"></div>
 
 	<div class="columns large-6">
-		<%= link_to 'Editar', edit_purchase_path(@purchase) %> |
-		<%= link_to 'Atras', purchases_path %>		
+		<%= link_to 'Atras', purchases_path(client: @client) %>		
 	</div>
 
 </div>

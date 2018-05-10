@@ -50,7 +50,7 @@
           <td><%= @users.phone %></td>
           <td><%= @users.address %></td>
           <td><%= @users.email %></td>
-          <td><%= link_to 'Compras', purchases_path(client: user) %></td>
+          <td><%= link_to 'Compras', purchases_path(client: @users) %></td>
           <td><%= @users.money_amount %></td>
         </tr>
       <% end %>
