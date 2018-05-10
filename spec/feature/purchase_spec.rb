@@ -15,13 +15,10 @@ RSpec.feature "pruebas para login" do
 
 		click_on("iniciar Sesión")
 
-		click_on("New Purchase")
+		click_on("Compras")
 
-		expect(page).to have_content("New Purchase")
-		fill_in "client", with: "jcosoriov@uqvirtual.edu.co"
-		fill_in "purchase[price]", with: 1234
+		expect(page).to have_content("Compras")
 
-		click_on("Create Purchase")
+		click_on("Nueva Compra")
 	end
-
 end

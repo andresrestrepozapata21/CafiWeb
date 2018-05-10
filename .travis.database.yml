@@ -1,0 +1,10 @@
+test:
+  adapter: mysql2
+  database: cafidrogas_test
+  username: travis
+  encoding: utf8
+cucumber:
+  adapter: mysql2
+  database: cafidrogas_test
+  username: root
+  encoding: utf8
