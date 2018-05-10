@@ -1,17 +1,14 @@
 language: ruby
 rvm:
   - 2.4.1
-env: 
-  - RAILS_ENV=test
+bundler_args: "--without production"
+addons:
+  postgresql: '9.5'
+services:
+  - postgresql
 before_script:
-  - "mysql -e 'create database cafidrogas_test;'"
-  - "cp ./.travis.database.yml ./config/database.yml"
-script: 
-  - bundle exec rake db:schema:load
-  - bundle exec rake db:test:prepare
-  - bundle exec rake spec
-after_failure:
-  - "mysql -e 'show databases;'"
-  - "cat ./config/database.yml"
-  - "echo $RAILS_ENV"
-  - "bundle exec rake --version"
+  - cp config/database.yml.travis config/database.yml
+  - psql -c 'create database cafiweb_test;' -U postgres
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+script:
+  - bundle exec rspec

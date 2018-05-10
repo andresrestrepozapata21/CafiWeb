@@ -1,10 +1,10 @@
 test:
-  adapter: mysql2
+  adapter: postgresql
   database: cafidrogas_test
   username: travis
-  encoding: utf8
+  encoding: unicode
 cucumber:
-  adapter: mysql2
+  adapter: postgresql
   database: cafidrogas_test
-  username: root
-  encoding: utf8
+  username: postgres
+  encoding: unicode
