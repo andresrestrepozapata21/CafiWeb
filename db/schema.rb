@@ -12,14 +12,17 @@
 
 ActiveRecord::Schema.define(version: 20180411222505) do
 
-  create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "products", force: :cascade do |t|
     t.string "name"
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "purchase_products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "purchase_products", force: :cascade do |t|
     t.bigint "purchase_id"
     t.bigint "product_id"
     t.datetime "created_at", null: false
@@ -28,7 +31,7 @@ ActiveRecord::Schema.define(version: 20180411222505) do
     t.index ["purchase_id"], name: "index_purchase_products_on_purchase_id"
   end
 
-  create_table "purchases", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "purchases", force: :cascade do |t|
     t.integer "price"
     t.date "time"
     t.datetime "created_at", null: false
@@ -41,7 +44,7 @@ ActiveRecord::Schema.define(version: 20180411222505) do
     t.index ["user_id"], name: "index_purchases_on_user_id"
   end
 
-  create_table "roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "roles", force: :cascade do |t|
     t.string "name"
     t.string "resource_type"
     t.bigint "resource_id"
@@ -52,7 +55,7 @@ ActiveRecord::Schema.define(version: 20180411222505) do
     t.index ["resource_type", "resource_id"], name: "index_roles_on_resource_type_and_resource_id"
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "users", force: :cascade do |t|
     t.string "document"
     t.string "name"
     t.string "phone"
@@ -74,7 +77,7 @@ ActiveRecord::Schema.define(version: 20180411222505) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "users_roles", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "users_roles", id: false, force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "role_id"
     t.index ["role_id"], name: "index_users_roles_on_role_id"
