@@ -37,17 +37,6 @@
   <div class="columns large-4"></div>
   <div class="columns">
     <p>
-    <strong>Telefono:</strong>
-    <%= @user.phone %>
-    </p>
-  </div>
-  <div class="columns"></div>
-</div>
-
-<div class="row align-center">
-  <div class="columns large-4"></div>
-  <div class="columns">
-    <p>
     <strong>Direccion:</strong>
    <%= @user.address %>
     </p>
@@ -60,14 +49,14 @@
   <div class="columns">
     <p>
     <strong>Monto Maximo:</strong>
-    <%= @user.money_amount %>
+    <%= @user.max_money %>
     </p>
   </div>
   <div class="columns"></div>
 </div>
 
 <div class="row align-center">
-  <div class="columns large-4"></div>
+  <div class="columns large-5"></div>
   <div class="columns">
     <%= link_to 'Editar', edit_user_path(@user) %> |
     <%= link_to 'Atras', users_path %>

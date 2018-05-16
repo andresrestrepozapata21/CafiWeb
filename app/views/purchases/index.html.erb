@@ -1,12 +1,24 @@
 <div class="row align-middle title_compras">
+  
   <div class="columns text-right large-5" style="padding-bottom: 10px; color: green;">
     <i class="fa fa-shopping-bag fa-3x"></i>
   </div>
   <div class="columns large-4 titulo_compras"> 
-    <h2>Compras</h2> 
+    <h2>Compras</h2>
   </div>
 </div>
- 
+
+<div class="row align-middle title_totalDeuda">
+  <div class="columns large-1" style="padding-right: 0px; padding-left: 0px; margin-left: 20px;">
+    <h6>Deuda Total:</h6>
+  </div>
+  <div class="columns text-left" style="padding-left: 0px; margin-bottom: 5px;">
+    <% if not current_user.has_role? :admin %>
+      <%= current_user.money_amount %>
+    <% end %>
+  </div>
+</div>
+
 <div class="row">
   <div class="columns large-12">
     <table>
@@ -31,7 +43,7 @@
               <td><%= link_to 'Detalles', purchase, client: @client %></td>
             <% end %>
             <% if current_user.has_role? :admin %>
-              <td><%= link_to 'Editar', edit_purchase_path(purchase), :class => "clear button success"  %></td>
+              <td><%= link_to 'Abonar', edit_purchase_path(purchase), :class => "clear button success"  %></td>
               <td><%= link_to 'Eliminar', purchase, method: :delete, data: { confirm: 'Estas Seguro?' }, :class => "clear button alert" %></td>
             <% end %>
           </tr>
