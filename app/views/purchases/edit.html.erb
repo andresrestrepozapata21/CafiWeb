@@ -28,7 +28,7 @@
     </div>
     <div class="row align-center">
         <div class="columns large-5">
-          <%= number_field_tag :price, "", placeholder: "Precio" %>
+          <%= number_field_tag :price, "", in: 0..100000000000 ,placeholder: "Precio" %>
         </div>
     </div>
   </div>

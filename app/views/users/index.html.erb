@@ -1,8 +1,8 @@
-<%= form_with url: search_path, local: true, method: :get do |form| %>
+
   <strong>Filtrar</strong>
-  <%= form.text_field :q, placeholder: "Correo", data: {behavior: "autocomplete"}%>
+  <%= text_field_tag :q, "", placeholder: "Correo", data: {behavior: "autocomplete"}%>
   
-<% end %>
+
 <div class="row align-middle title_usuarios">
   <div class="columns text-right large-5" style="padding-bottom: 10px; color: green;">
     <i class="fa fa-users fa-3x"></i>

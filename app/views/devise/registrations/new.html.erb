@@ -14,7 +14,7 @@
     <div class="field">
         <div class="row align-center">
             <div class="columns large-8">
-                 <%= f.text_field :name, autofocus: true, placeholder: "Digite su nombre" %>
+                 <%= f.text_field :name, :validate => true, autofocus: true, placeholder: "Digite su nombre" %>
             </div>
         </div>
     </div>
@@ -22,12 +22,12 @@
     <div class="row align-center">
         <div class="columns large-4">
             <div class="field">
-                <%= f.text_field :document, placeholder:"Digite documento de identidad" %>
+                <%= f.text_field :document, :validate => true, placeholder:"Digite documento de identidad" %>
             </div>
         </div>
         <div class="columns large-4">
             <div class="field">
-                <%= f.text_field :phone, autofocus: true, placeholder:"Digite su numero telefonico" %>
+                <%= f.text_field :phone, :validate => true, autofocus: true, placeholder:"Digite su numero telefonico" %>
             </div>
         </div>
     </div>
@@ -35,7 +35,7 @@
     <div class="field" style="margin-bottom: 50px;">
         <div class="row align-center">
             <div class="columns large-8">
-                <%= f.text_field :address, autofocus: true, placeholder: "Digite su dirección" %>  
+                <%= f.text_field :address, :validate => true, autofocus: true, placeholder: "Digite su dirección" %>  
             </div>
         </div>
     </div>

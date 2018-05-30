@@ -14,6 +14,7 @@ document.addEventListener("turbolinks:load", function() {
 		],
 		list: {
 			onChooseEvent: function() {
+				location.reload();
 				var url = $input.getSelectedItemData().url
 				$input.val("")
 				Turbolinks.visit(url)
